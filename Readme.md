@@ -18,11 +18,11 @@
 > b3f68070ca0638978c6fe19c98a7ebaa500024 172.18.0.4:6379@16379 master - 0 1595922288384 2 connected 5461-10922 
 > 55b72d3f0c8e356fa0bb94f611df2cc215ac7c 172.18.0.3:6379@16379 master - 0 1595922287361 1 connected 0-5460 
 
-9 Test.
+9.  Test.
 	1. "redis-cli -p 7000 -c set 111 222" 
 	> OK
 	2. "redis-cli -p 7003 -c get 111" 
 	> OK
 	3. redis-cli -p 7002 -c
 	> set 222 233
-	> redirect to ** some other instance **
+	> redirect to **some other instance**
