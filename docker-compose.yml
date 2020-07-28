@@ -1,0 +1,78 @@
+version: "3"
+services: 
+    redis-cluster-7000:
+        image: redis
+        container_name: node-7000
+        ports:
+            - "7000:6379"
+        volumes:
+            - ./conf/redis.conf:/usr/local/etc/redis/redis.conf
+            - ./7000/log:/var/log/redis
+            - ./7000/data:/data/redis
+        command: sh -c "redis-server /usr/local/etc/redis/redis.conf"
+        depends_on: 
+            - redis-cluster-7001
+            - redis-cluster-7002
+            - redis-cluster-7003
+            - redis-cluster-7004
+            - redis-cluster-7005
+
+    redis-cluster-7001:
+        image: redis
+        container_name: node-7001
+        ports:
+            - "7001:6379"
+        volumes:
+            - ./conf/redis.conf:/usr/local/etc/redis/redis.conf
+            - ./7001/log:/var/log/redis
+            - ./7001/data:/data/redis
+        command: sh -c "redis-server /usr/local/etc/redis/redis.conf"
+
+    redis-cluster-7002:
+        image: redis
+        container_name: node-7002
+        ports:
+            - "7002:6379"
+        volumes:
+            - ./conf/redis.conf:/usr/local/etc/redis/redis.conf
+            - ./7002/log:/var/log/redis
+            - ./7002/data:/data/redis
+        command: sh -c "redis-server /usr/local/etc/redis/redis.conf"
+
+    redis-cluster-7003:
+        image: redis
+        container_name: node-7003
+        ports:
+            - "7003:6379"
+        volumes:
+            - ./conf/redis.conf:/usr/local/etc/redis/redis.conf
+            - ./7003/log:/var/log/redis
+            - ./7003/data:/data/redis
+        command: sh -c "redis-server /usr/local/etc/redis/redis.conf"            
+
+    redis-cluster-7004:
+        image: redis
+        container_name: node-7004
+        ports:
+            - "7004:6379"
+        volumes:
+            - ./conf/redis.conf:/usr/local/etc/redis/redis.conf
+            - ./7004/log:/var/log/redis
+            - ./7004/data:/data/redis
+        command: sh -c "redis-server /usr/local/etc/redis/redis.conf"
+        
+    redis-cluster-7005:
+        image: redis
+        container_name: node-7005
+        ports:
+            - "7005:6379"
+        volumes:
+            - ./conf/redis.conf:/usr/local/etc/redis/redis.conf
+            - ./7005/log:/var/log/redis
+            - ./7005/data:/data/redis
+        command: sh -c "redis-server /usr/local/etc/redis/redis.conf"
+
+networks:
+    default:
+        external:
+            name: redis-cluster_frontend
